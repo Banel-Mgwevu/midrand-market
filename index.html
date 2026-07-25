@@ -2,394 +2,124 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Midrand Farmers Market</title>
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#FAF5E9;
-    --cream-2:#F1E9D6;
-    --forest:#1E6F42;
-    --forest-dark:#154F30;
-    --sage:#7FA98A;
-    --gold:#C88A1E;
-    --ink:#26301F;
-    --line: rgba(30,111,66,0.25);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    margin:0;
-    color:var(--forest-dark);
-    font-weight:500;
-  }
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-
-  /* NAV */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(250,245,233,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-top:14px;padding-bottom:14px;
-  }
-  .brand{display:flex;align-items:center;gap:12px;}
-  .brand img{height:48px;width:48px;object-fit:contain;}
-  .brand span{font-family:'Fraunces', serif;font-size:1.05rem;letter-spacing:.03em;color:var(--forest-dark);}
-  .navlinks{display:flex;gap:34px;align-items:center;}
-  .navlinks a{
-    font-size:.92rem;letter-spacing:.02em;color:var(--ink);
-    position:relative;padding:4px 0;
-  }
-  .navlinks a::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
-    background:var(--forest);transition:width .25s ease;
-  }
-  .navlinks a:hover::after{width:100%;}
-  .navlinks .apply-btn{
-    background:var(--forest);color:#fff;padding:9px 20px;border-radius:999px;
-    font-size:.88rem;
-  }
-  .navlinks .apply-btn::after{display:none;}
-  .navlinks .apply-btn:hover{background:var(--forest-dark);}
-  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--forest-dark);cursor:pointer;}
-
-  /* HERO */
-  .hero{
-    position:relative;
-    padding:78px 0 90px;
-    overflow:hidden;
-  }
-  .hero .wrap{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:56px;
-    align-items:center;
-  }
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:'Space Mono', monospace;
-    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--forest);
-    padding:6px 14px;border:1px solid var(--line);border-radius:999px;
-    background:#fff;margin-bottom:26px;
-  }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
-  .hero h1{
-    font-size:clamp(2.6rem, 5vw, 4.1rem);
-    line-height:1.03;
-    letter-spacing:-.01em;
-  }
-  .hero h1 em{
-    font-style:italic;color:var(--forest);
-  }
-  .hero p.lead{
-    margin-top:22px;font-size:1.1rem;line-height:1.65;color:#40492f;max-width:46ch;
-  }
-  .hero .cta-row{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
-  .btn-solid{
-    background:var(--forest);color:#fff;padding:14px 28px;border-radius:999px;
-    font-size:.95rem;font-weight:500;display:inline-block;transition:background .2s ease, transform .2s ease;
-  }
-  .btn-solid:hover{background:var(--forest-dark);transform:translateY(-1px);}
-  .btn-ghost{
-    border:1px solid var(--forest);color:var(--forest-dark);padding:13px 27px;border-radius:999px;
-    font-size:.95rem;font-weight:500;display:inline-block;transition:background .2s ease;
-  }
-  .btn-ghost:hover{background:#fff;}
-
-  .hero-badge{
-    position:relative;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .badge-ring{
-    width:min(420px, 90%);aspect-ratio:1/1;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .badge-ring img{width:100%;height:100%;object-fit:contain;}
-
-  /* SECTION LABELS */
-  .section-tag{
-    font-family:'Space Mono', monospace;
-    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:14px;display:block;
-  }
-
-  /* ABOUT */
-  .about{padding:70px 0;border-top:1px solid var(--line);}
-  .about .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start;}
-  .about h2{font-size:2.3rem;line-height:1.15;}
-  .about-copy p{font-size:1.02rem;line-height:1.75;color:#3c4530;margin:0 0 18px;}
-  .about-copy p:last-child{margin-bottom:0;}
-  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
-  .stat{
-    border:1px solid var(--line);border-radius:16px;padding:20px 18px;background:#fff;
-  }
-  .stat b{display:block;font-family:'Fraunces', serif;font-size:1.7rem;color:var(--forest-dark);}
-  .stat span{font-size:.82rem;color:#5a6248;}
-
-  /* MARKET DATES / CALENDAR STRIP */
-  .dates{
-    padding:70px 0;background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  }
-  .dates-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:44px;}
-  .dates-head h2{font-size:2.1rem;}
-  .dates-head p{color:#4a5238;max-width:40ch;font-size:.98rem;}
-  .date-track{
-    position:relative;display:flex;justify-content:space-between;gap:14px;
-  }
-  .date-track::before{
-    content:"";position:absolute;top:36px;left:36px;right:36px;height:1px;
-    background:repeating-linear-gradient(to right, var(--forest) 0 8px, transparent 8px 16px);
-    opacity:.5;z-index:0;
-  }
-  .date-stop{
-    position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;
-  }
-  .date-circle{
-    width:72px;height:72px;border-radius:50%;background:#fff;border:2px solid var(--forest);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    font-family:'Space Mono', monospace;color:var(--forest-dark);margin-bottom:14px;
-    transition:transform .2s ease, background .2s ease;
-  }
-  .date-stop.next .date-circle{background:var(--forest);color:#fff;transform:scale(1.12);}
-  .date-circle b{font-size:1.25rem;line-height:1;}
-  .date-circle small{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;}
-  .date-stop p{margin:0;font-size:.85rem;color:#4a5238;max-width:14ch;}
-  .date-stop.next p{color:var(--forest-dark);font-weight:600;}
-  @media (max-width: 780px){
-    .date-track{flex-wrap:wrap;}
-    .date-track::before{display:none;}
-    .date-stop{flex:1 1 40%;}
-  }
-
-  /* APPLY / VENDOR CTA */
-  .apply{padding:86px 0;}
-  .apply .wrap{
-    background:var(--forest);
-    border-radius:28px;
-    padding:64px 56px;
-    display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
-    color:#f4f2e8;
-    position:relative;overflow:hidden;
-  }
-  .apply .wrap::after{
-    content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
-    border-radius:50%;border:1px solid rgba(244,242,232,.25);
-  }
-  .apply h2{color:#fff;font-size:2.1rem;}
-  .apply p{color:#dfe8dd;font-size:1rem;line-height:1.7;margin-top:16px;max-width:48ch;}
-  .apply .btn-solid{background:#fff;color:var(--forest-dark);}
-  .apply .btn-solid:hover{background:#f1e9d6;}
-  .apply-right{
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);
-    border-radius:18px;padding:26px;font-family:'Space Mono', monospace;font-size:.85rem;line-height:2;
-  }
-  .apply-right div{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(255,255,255,.25);padding:6px 0;}
-  .apply-right div:last-child{border-bottom:none;}
-
-  /* CONTACT + FOOTER */
-  footer{border-top:1px solid var(--line);padding:70px 0 40px;}
-  .foot-grid{display:grid;grid-template-columns:1.3fr .8fr .8fr;gap:48px;}
-  .foot-brand{display:flex;gap:14px;align-items:center;margin-bottom:16px;}
-  .foot-brand img{height:56px;width:56px;object-fit:contain;}
-  .foot-brand span{font-family:'Fraunces', serif;font-size:1.15rem;color:var(--forest-dark);}
-  footer p.tag{color:#5a6248;font-size:.95rem;max-width:36ch;line-height:1.6;}
-  footer h3{font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;font-family:'Space Mono',monospace;color:var(--gold);margin-bottom:16px;}
-  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
-  footer li a{color:#3c4530;font-size:.96rem;}
-  footer li a:hover{color:var(--forest);}
-  .socials{display:flex;gap:14px;margin-top:18px;}
-  .socials a{
-    width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;color:var(--forest-dark);
-    transition:background .2s ease,color .2s ease;
-  }
-  .socials a:hover{background:var(--forest);color:#fff;}
-  .bottom-bar{
-    margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-    font-size:.82rem;color:#6b7358;
-  }
-
-  @media (max-width: 900px){
-    .navlinks{position:fixed;top:76px;left:0;right:0;background:var(--cream);flex-direction:column;
-      padding:24px 32px;border-bottom:1px solid var(--line);gap:20px;display:none;}
-    .navlinks.open{display:flex;}
-    .menu-toggle{display:block;}
-    .hero .wrap, .about .wrap, .apply .wrap, .foot-grid{grid-template-columns:1fr;}
-    .hero-badge{order:-1;margin-bottom:20px;}
-    .badge-ring{width:220px;margin:0 auto;}
-    .stat-row{grid-template-columns:1fr 1fr;}
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-  <nav class="wrap">
-    <a class="brand" href="#top">
-      <img src="logo.png" alt="Midrand Farmers Market logo">
-      <span>Midrand Farmers Market</span>
-    </a>
-    <div class="navlinks" id="navlinks">
-      <a href="#about">About Us</a>
-      <a href="#calendar">Calendar</a>
-      <a href="#apply">Application</a>
-      <a href="#contact">Contact Us</a>
-      <a class="apply-btn" href="#apply">Become a Vendor</a>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
-  </nav>
+ <nav class="wrap">
+ <a class="brand" href="index.html">
+ <img src="logo.png" alt="Midrand Farmers Market logo">
+ <span>Midrand Farmers Market</span>
+ </a>
+ <div class="navlinks" id="navlinks">
+ <a href="index.html" class="active">Home</a>
+ <a href="index.html#about">About Us</a>
+ <a href="zoo-booking.html">Zoo Booking</a>
+ <a href="index.html#contact">Contact Us</a>
+ <a class="apply-btn" href="application.html">Become a Vendor</a>
+ </div>
+ <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+ </nav>
 </header>
 
 <section class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Last Sunday of every month</span>
-      <h1>Fresh from the soil,<br><em>straight to your basket.</em></h1>
-      <p class="lead">Midrand Farmers Market brings together local growers, bakers and makers for one Sunday a month — real food, real people, grown close to home.</p>
-      <div class="cta-row">
-        <a class="btn-solid" href="#calendar">See next market date</a>
-        <a class="btn-ghost" href="#apply">Apply as a vendor</a>
-      </div>
-      <div class="stat-row">
-        <div class="stat"><b>40+</b><span>Local vendors</span></div>
-        <div class="stat"><b>12</b><span>Markets a year</span></div>
-        <div class="stat"><b>100%</b><span>Homegrown &amp; handmade</span></div>
-      </div>
-    </div>
-    <div class="hero-badge">
-      <div class="badge-ring"><img src="logo.png" alt=""></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div>
+ <h1>Fresh from the soil,<br><em>straight to your basket.</em></h1>
+ <p class="lead">Midrand Farmers Market brings together local growers, bakers and makers every Sunday at De Vos Farm - real food, real people, grown close to home.</p>
+ <div class="cta-row">
+ <a class="btn-solid" href="zoo-booking.html">Book the zoo corner</a>
+ <a class="btn-ghost" href="application.html">Apply as a vendor</a>
+ </div>
+ <div class="stat-row">
+ <div class="stat"><b>40+</b><span>Local vendors</span></div>
+ <div class="stat"><b>52</b><span>Sundays a year</span></div>
+ <div class="stat"><b>100%</b><span>Homegrown &amp; handmade</span></div>
+ </div>
+ </div>
+ <div class="hero-badge">
+ <div class="badge-ring"><img src="logo.png" alt=""></div>
+ </div>
+ </div>
 </section>
 
 <section class="about" id="about">
-  <div class="wrap">
-    <div>
-      <span class="section-tag">About Us</span>
-      <h2>A market rooted in the community.</h2>
-    </div>
-    <div class="about-copy">
-      <p>Midrand Farmers Market is a monthly gathering of local growers, bakers, roasters and craftspeople, held right here in Midrand. We started this market to give small, independent producers a place to sell directly to the people who'll enjoy what they make — no middlemen, no mass production, just good food and honest craft.</p>
-      <p>Every stall is hand-picked. Expect seasonal vegetables and fruit, farm eggs, artisan bread, small-batch preserves, coffee, plants and handmade goods, alongside food trucks and live music that turn the morning into a proper outing for the whole family.</p>
-      <p>We're proudly outdoor, dog-friendly, and pram-friendly — come early for the best pick of the produce, and stay for a slow Sunday morning with good coffee in hand.</p>
-    </div>
-  </div>
-</section>
-
-<section class="dates" id="calendar">
-  <div class="wrap">
-    <div class="dates-head">
-      <div>
-        <span class="section-tag">Calendar</span>
-        <h2>Mark your Sundays.</h2>
-      </div>
-      <p>The market runs on the last Sunday of every month, rain or shine. Check back here for any date changes over the festive season.</p>
-    </div>
-    <div class="date-track">
-      <div class="date-stop">
-        <div class="date-circle"><b>31</b><small>May</small></div>
-        <p>Autumn Harvest</p>
-      </div>
-      <div class="date-stop">
-        <div class="date-circle"><b>28</b><small>Jun</small></div>
-        <p>Midwinter Market</p>
-      </div>
-      <div class="date-stop next">
-        <div class="date-circle"><b>26</b><small>Jul</small></div>
-        <p>Next up</p>
-      </div>
-      <div class="date-stop">
-        <div class="date-circle"><b>30</b><small>Aug</small></div>
-        <p>Spring Preview</p>
-      </div>
-      <div class="date-stop">
-        <div class="date-circle"><b>27</b><small>Sep</small></div>
-        <p>Spring Bloom</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="apply" id="apply">
-  <div class="wrap">
-    <div>
-      <span class="section-tag" style="color:#e7d9a8;">Applications</span>
-      <h2>Sell what you grow, bake or make.</h2>
-      <p>We're always looking for new farmers, bakers, roasters and makers to join the stalls. If your produce is grown or made by you, we'd love to hear from you.</p>
-      <div class="cta-row">
-        <a class="btn-solid" href="mailto:info@midrandfarmersmarket.co.za?subject=Vendor%20Application">Apply here</a>
-      </div>
-    </div>
-    <div class="apply-right">
-      <div><span>Stall fee</span><span>[Add price]</span></div>
-      <div><span>Setup time</span><span>06:00 – 07:30</span></div>
-      <div><span>Market hours</span><span>08:00 – 13:00</span></div>
-      <div><span>Power on site</span><span>On request</span></div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div>
+ <span class="section-tag">About Us</span>
+ <h2>A market rooted in the community.</h2>
+ </div>
+ <div class="about-copy">
+ <p>Midrand Farmers Market is a weekly gathering of local growers, bakers, roasters and craftspeople, held every Sunday at De Vos Farm, 15 Douglas Rd, Glen Austin. We started this market to give small, independent producers a place to sell directly to the people who'll enjoy what they make - no middlemen, no mass production, just good food and honest craft.</p>
+ <p>Every stall is hand-picked. Expect seasonal vegetables and fruit, farm eggs, artisan bread, small-batch preserves, coffee, plants and handmade goods, alongside food trucks, live music, and a small petting zoo corner that turn the morning into a proper outing for the whole family.</p>
+ <p>We're proudly outdoor, dog-friendly, and pram-friendly - come early for the best pick of the produce, and stay for a slow Sunday morning with good coffee in hand.</p>
+ </div>
+ </div>
 </section>
 
 <footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <img src="logo.png" alt="Midrand Farmers Market logo">
-          <span>Midrand Farmers Market</span>
-        </div>
-        <p class="tag">Local growers, bakers and makers, gathered once a month. Fresh, homegrown, and made close to home.</p>
-        <div class="socials">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">ig</a>
-        </div>
-      </div>
-      <div>
-        <h3>Visit</h3>
-        <ul>
-          <li>[Venue name, Midrand]</li>
-          <li>Last Sunday monthly</li>
-          <li>08:00 – 13:00</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="tel:+27000000000">+27 00 000 0000</a></li>
-          <li><a href="mailto:info@midrandfarmersmarket.co.za">info@midrandfarmersmarket.co.za</a></li>
-          <li><a href="#apply">Vendor applications</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="bottom-bar">
-      <span>&copy; 2026 Midrand Farmers Market. All rights reserved.</span>
-      <span>Made with care, for the community.</span>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="foot-grid">
+ <div>
+ <div class="foot-brand">
+ <img src="logo.png" alt="Midrand Farmers Market logo">
+ <span>Midrand Farmers Market</span>
+ </div>
+ <p class="tag">Local growers, bakers and makers, gathered every Sunday. Fresh, homegrown, and made close to home.</p>
+ <div class="socials">
+ <a href="#" aria-label="Facebook">f</a>
+ <a href="#" aria-label="Instagram">ig</a>
+ </div>
+ </div>
+ <div>
+ <h3>Visit</h3>
+ <ul>
+ <li>De Vos Farm, 15 Douglas Rd, Glen Austin</li>
+ <li>Every Sunday, 09:00-15:30</li>
+ <li>Entrance: Free | Parking: R10</li>
+ </ul>
+ </div>
+ <div>
+ <h3>Contact</h3>
+ <ul>
+ <li><a href="tel:+27662222833">066 222 2833</a></li>
+ <li><a href="mailto:info@midrandfarmersmarket.co.za">info@midrandfarmersmarket.co.za</a></li>
+ <li><a href="application.html">Vendor applications</a></li>
+ <li><a href="zoo-booking.html">Zoo booking</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom-bar">
+ <span>&copy; 2026 Midrand Farmers Market. All rights reserved.</span>
+ <span>Made with care, for the community.</span>
+ </div>
+ </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navlinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-</script>
+<!-- Newsletter modal -->
+<div class="nl-overlay" id="nlOverlay">
+ <div class="nl-modal">
+ <button class="nl-close" id="nlClose" aria-label="Close">&times;</button>
+ <img class="modal-icon" src="logo.png" alt="">
+ <h3>Never miss a market Sunday.</h3>
+ <p>Get next month's date, new vendor announcements and the odd recipe idea - once a month, no spam.</p>
+ <form id="nlModalForm">
+ <input type="text" id="nlModalName" placeholder="First name" required aria-label="First name">
+ <input type="email" id="nlModalEmail" placeholder="you@email.com" required aria-label="Email address">
+ <button type="submit" class="btn-solid">Sign up</button>
+ </form>
+ <p class="nl-note" id="nlModalNote">We'll only ever email you about the market. Unsubscribe any time.</p>
+ </div>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Zoo Booking - Midrand Farmers Market</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+ <nav class="wrap">
+ <a class="brand" href="index.html">
+ <img src="logo.png" alt="Midrand Farmers Market logo">
+ <span>Midrand Farmers Market</span>
+ </a>
+ <div class="navlinks" id="navlinks">
+ <a href="index.html">Home</a>
+ <a href="index.html#about">About Us</a>
+ <a href="zoo-booking.html" class="active">Zoo Booking</a>
+ <a href="index.html#contact">Contact Us</a>
+ <a class="apply-btn" href="application.html">Become a Vendor</a>
+ </div>
+ <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+ </nav>
+</header>
+
+<section class="page-header">
+ <div class="wrap">
+ <span class="section-tag">Zoo Booking</span>
+ <h1>Book the petting zoo corner.</h1>
+ <p>A small, gentle animal encounter for kids, running every market Sunday. Slots are limited, so reserve ahead to guarantee your time.</p>
+ </div>
+</section>
+
+<section class="zoo-section">
+ <div class="wrap zoo-grid">
+ <div class="zoo-info">
+ <h2>What to expect</h2>
+ <p>Our petting zoo corner is a calm, supervised space where children can meet and feed friendly farm animals - rabbits, goats, chickens and guinea pigs - while parents browse the stalls nearby.</p>
+ <ul>
+ <li>Suitable for children of all ages, supervised throughout</li>
+ <li>Hand-sanitising stations at entry and exit</li>
+ <li>30-minute time slots to keep groups small</li>
+ <li>Animal feed included in the booking</li>
+ </ul>
+ </div>
+ <div class="booking-card">
+ <h3>Reserve your slot</h3>
+ <p class="sub">Free entry - booking simply helps us manage numbers.</p>
+ <form id="bookingForm">
+ <div class="form-grid">
+ <div>
+ <label for="bkName">Full name</label>
+ <input type="text" id="bkName" placeholder="Jane Doe" required>
+ </div>
+ <div>
+ <label for="bkEmail">Email address</label>
+ <input type="email" id="bkEmail" placeholder="you@email.com" required>
+ </div>
+ <div>
+ <label for="bkDate">Market date</label>
+ <select id="bkDate" required>
+ <option value="" disabled selected>Choose a date</option>
+ <option value="2 August 2026">Sunday, 2 August 2026</option>
+ <option value="9 August 2026">Sunday, 9 August 2026</option>
+ <option value="16 August 2026">Sunday, 16 August 2026</option>
+ <option value="23 August 2026">Sunday, 23 August 2026</option>
+ </select>
+ </div>
+ <div>
+ <label for="bkSlot">Time slot</label>
+ <select id="bkSlot" required>
+ <option value="" disabled selected>Choose a time</option>
+ <option value="09:00-09:30">09:00-09:30</option>
+ <option value="10:00-10:30">10:00-10:30</option>
+ <option value="11:00-11:30">11:00-11:30</option>
+ <option value="12:00-12:30">12:00-12:30</option>
+ </select>
+ </div>
+ <div class="full">
+ <label for="bkGuests">Number of children</label>
+ <input type="number" id="bkGuests" min="1" max="10" placeholder="e.g. 2" required>
+ </div>
+ </div>
+ <button type="submit" class="btn-solid">Request booking</button>
+ <p class="form-note" id="bookingNote">We'll confirm your slot by email within 24 hours.</p>
+ </form>
+ </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+ <div class="foot-grid">
+ <div>
+ <div class="foot-brand">
+ <img src="logo.png" alt="Midrand Farmers Market logo">
+ <span>Midrand Farmers Market</span>
+ </div>
+ <p class="tag">Local growers, bakers and makers, gathered every Sunday. Fresh, homegrown, and made close to home.</p>
+ <div class="socials">
+ <a href="#" aria-label="Facebook">f</a>
+ <a href="#" aria-label="Instagram">ig</a>
+ </div>
+ </div>
+ <div>
+ <h3>Visit</h3>
+ <ul>
+ <li>De Vos Farm, 15 Douglas Rd, Glen Austin</li>
+ <li>Every Sunday, 09:00-15:30</li>
+ <li>Entrance: Free | Parking: R10</li>
+ </ul>
+ </div>
+ <div>
+ <h3>Contact</h3>
+ <ul>
+ <li><a href="tel:+27662222833">066 222 2833</a></li>
+ <li><a href="mailto:info@midrandfarmersmarket.co.za">info@midrandfarmersmarket.co.za</a></li>
+ <li><a href="application.html">Vendor applications</a></li>
+ <li><a href="zoo-booking.html">Zoo booking</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom-bar">
+ <span>&copy; 2026 Midrand Farmers Market. All rights reserved.</span>
+ <span>Made with care, for the community.</span>
+ </div>
+ </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

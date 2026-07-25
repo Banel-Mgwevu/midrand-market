@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin - Midrand Farmers Market</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+<!-- LOGIN SCREEN -->
+<div class="admin-login-wrap" id="loginWrap">
+  <div class="admin-login-card">
+    <img src="logo.png" alt="Midrand Farmers Market" class="admin-logo">
+    <h1>Admin sign in</h1>
+    <p class="sub">Manage vendor applications and the newsletter.</p>
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" required autocomplete="username">
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" required autocomplete="current-password">
+      <button type="submit" class="btn-solid">Log in</button>
+      <p class="form-note" id="loginNote"></p>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="admin-dash" id="dashWrap" style="display:none;">
+  <header class="admin-header">
+    <div class="wrap admin-header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Midrand Farmers Market logo">
+        <span>Admin Dashboard</span>
+      </a>
+      <button class="btn-ghost" id="logoutBtn">Log out</button>
+    </div>
+  </header>
+
+  <div class="wrap admin-tabs">
+    <button class="tab-btn active" data-tab="vendors">Vendor Applications</button>
+    <button class="tab-btn" data-tab="newsletter">Newsletter</button>
+  </div>
+
+  <!-- VENDORS TAB -->
+  <section class="wrap admin-panel" id="panel-vendors">
+    <div class="panel-head">
+      <h2>Vendor Applications</h2>
+      <div class="filter-row">
+        <button class="chip active" data-filter="pending">Pending</button>
+        <button class="chip" data-filter="approved">Approved</button>
+        <button class="chip" data-filter="declined">Declined</button>
+        <button class="chip" data-filter="all">All</button>
+      </div>
+    </div>
+    <div id="vendorList" class="vendor-list">
+      <p class="empty-state">Loading applications&hellip;</p>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER TAB -->
+  <section class="wrap admin-panel" id="panel-newsletter" style="display:none;">
+    <div class="panel-head">
+      <h2>Send a Newsletter</h2>
+      <span class="subscriber-count" id="subscriberCount">Loading subscribers&hellip;</span>
+    </div>
+    <form id="newsletterSendForm" class="newsletter-compose">
+      <label for="nlSubject">Subject line</label>
+      <input type="text" id="nlSubject" placeholder="e.g. This Sunday at the market" required>
+      <label for="nlBody">Message</label>
+      <textarea id="nlBody" rows="10" placeholder="Write your update here. Plain paragraphs are fine - line breaks are kept." required></textarea>
+      <button type="submit" class="btn-solid" id="sendNlBtn">Send to all subscribers</button>
+      <p class="form-note" id="sendNlNote"></p>
+    </form>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
