@@ -71,11 +71,20 @@ nav.wrap{
 @media (max-width: 860px){
   .navlinks{
     position:fixed;top:73px;left:0;right:0;bottom:0;
-    background:var(--cream);flex-direction:column;align-items:flex-start;
-    padding:28px 24px;gap:22px;display:none;overflow-y:auto;
+    background:var(--cream);flex-direction:column;align-items:center;justify-content:center;
+    padding:40px 24px;gap:40px;display:none;overflow-y:auto;z-index:100;
   }
   .navlinks.open{display:flex;}
-  .navlinks .apply-btn{width:100%;text-align:center;padding:14px;}
+  .navlinks a{
+    font-family:'Fraunces', serif;font-weight:500;font-size:clamp(1.7rem, 7vw, 2.2rem);
+    color:var(--forest-dark);letter-spacing:-.01em;padding:0;
+  }
+  .navlinks a::after{display:none;}
+  .navlinks .apply-btn{
+    background:none;color:var(--forest-dark);padding:0;border-radius:0;width:auto;
+    font-family:'Fraunces', serif;font-weight:500;font-size:clamp(1.7rem, 7vw, 2.2rem);
+  }
+  .navlinks .apply-btn:hover{background:none;color:var(--forest);}
   .menu-toggle{display:block;}
 }
 

@@ -44,6 +44,11 @@ if (nlOverlay) {
     if (e.key === 'Escape' && nlOverlay.classList.contains('show')) closeModal();
   });
 
+  const heroNewsletterBtn = document.getElementById('heroNewsletterBtn');
+  if (heroNewsletterBtn) {
+    heroNewsletterBtn.addEventListener('click', openModal);
+  }
+
   nlModalForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const name = document.getElementById('nlModalName').value.trim();
