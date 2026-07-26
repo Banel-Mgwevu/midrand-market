@@ -3,10 +3,8 @@
 // Requires these secrets set first:
 //   supabase secrets set RESEND_API_KEY=re_your_key_here
 //   supabase secrets set RESEND_FROM="Midrand Farmers Market <news@midrandfarmersmarket.co.za>"
-//   supabase secrets set SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
-//   supabase secrets set SUPABASE_ANON_KEY=your_anon_key
 // (SUPABASE_URL and SUPABASE_ANON_KEY are auto-provided by Supabase already,
-// no need to set them yourself - listed here just so you know they're used.)
+// no need to set them yourself.)
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
