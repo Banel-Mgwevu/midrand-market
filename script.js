@@ -11,6 +11,13 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+// Adds https:// to a URL if the person typed a bare domain (e.g. "example.com")
+function normalizeUrl(value) {
+  if (!value) return null;
+  if (/^https?:\/\//i.test(value)) return value;
+  return 'https://' + value;
+}
+
 // Supabase client (config.js must load before this file, and supabase-js CDN before that)
 let supabaseClient = null;
 if (window.supabase && window.SUPABASE_URL && window.SUPABASE_ANON_KEY) {
@@ -105,8 +112,8 @@ if (vendorForm) {
     const contact_name = document.getElementById('vContact').value.trim();
     const email = document.getElementById('vEmail').value.trim();
     const phone = document.getElementById('vPhone').value.trim();
-    const website = document.getElementById('vWebsite').value.trim();
-    const social_link = document.getElementById('vSocial').value.trim();
+    const website = normalizeUrl(document.getElementById('vWebsite').value.trim());
+    const social_link = normalizeUrl(document.getElementById('vSocial').value.trim());
     const category = document.getElementById('vCategory').value;
     const category_other = document.getElementById('vCategoryOther').value.trim();
     const product_description = document.getElementById('vProduct').value.trim();
@@ -115,7 +122,7 @@ if (vendorForm) {
     const isFoodVendor = FOOD_CATEGORIES.includes(category);
     const MAX_SIZE = 10 * 1024 * 1024;
 
-    if (!business_name || !contact_name || !isValidEmail(email) || !phone || !website || !social_link || !category || !product_description) {
+    if (!business_name || !contact_name || !isValidEmail(email) || !phone || !category || !product_description) {
       vendorNote.textContent = 'Please fill in all required fields with a valid email address.';
       vendorNote.className = 'form-note error';
       return;

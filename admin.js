@@ -122,7 +122,12 @@ async function loadVendors() {
           ${app.social_link ? ' &middot; <a href="' + escapeHtml(app.social_link) + '" target="_blank" rel="noopener">Instagram/Facebook</a>' : ''}
         </div>
         <p class="desc">${escapeHtml(app.product_description)}</p>
-        ${photos.length ? '<p class="applied-at">Photos: ' + photos.map((u, i) => '<a href="' + escapeHtml(u) + '" target="_blank" rel="noopener">#' + (i + 1) + '</a>').join(' ') + '</p>' : ''}
+        ${photos.length ? '<div class="photo-thumbs">' + photos.map((u) => {
+          const isImage = /\.(jpe?g|png|gif|webp|heic|heif)$/i.test(u);
+          return isImage
+            ? '<a href="' + escapeHtml(u) + '" target="_blank" rel="noopener"><img src="' + escapeHtml(u) + '" alt="Stall photo" loading="lazy"></a>'
+            : '<a href="' + escapeHtml(u) + '" target="_blank" rel="noopener" class="photo-file">File</a>';
+        }).join('') + '</div>' : ''}
         ${app.coa_url ? '<p class="applied-at">COA: <a href="' + escapeHtml(app.coa_url) + '" target="_blank" rel="noopener">View certificate</a></p>' : ''}
         <p class="applied-at">Applied ${appliedDate}</p>
       </div>
