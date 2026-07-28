@@ -69,8 +69,9 @@ nav.wrap{
 }
 
 @media (max-width: 860px){
+  header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--cream);}
   .navlinks{
-    position:fixed;top:73px;left:0;right:0;bottom:0;
+    position:fixed;top:73px;left:0;right:0;bottom:0;height:calc(100vh - 73px);
     background:var(--cream);flex-direction:column;align-items:center;justify-content:center;
     padding:40px 24px;gap:40px;display:none;overflow-y:auto;z-index:100;
   }
