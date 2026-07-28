@@ -14,8 +14,14 @@ create table if not exists vendor_applications (
   business_name text not null,
   contact_name text not null,
   email text not null,
-  phone text,
+  phone text not null,
+  website text,
+  social_link text,
+  category text not null,
+  category_other text,
   product_description text not null,
+  photo_urls text[] not null default '{}',
+  coa_url text,
   status text not null default 'pending' check (status in ('pending','approved','declined')),
   created_at timestamptz not null default now(),
   decided_at timestamptz
@@ -57,3 +63,18 @@ create policy "admin can update applications"
   on vendor_applications for update
   to authenticated
   using (true);
+
+-- ============ STORAGE (vendor photo & certificate uploads) ============
+-- Before running this section: go to Supabase Dashboard > Storage > New bucket,
+-- name it exactly "vendor-uploads", and make it a PUBLIC bucket. Then run this
+-- part of the script to set the upload/read permissions on it.
+
+create policy "public can upload vendor files"
+  on storage.objects for insert
+  to anon
+  with check (bucket_id = 'vendor-uploads');
+
+create policy "anyone can view vendor files"
+  on storage.objects for select
+  to public
+  using (bucket_id = 'vendor-uploads');

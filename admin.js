@@ -105,16 +105,25 @@ async function loadVendors() {
     const card = document.createElement('div');
     card.className = 'vendor-card';
     const appliedDate = new Date(app.created_at).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' });
+    const categoryLabel = app.category === 'Other' && app.category_other ? app.category_other : app.category;
+    const photos = Array.isArray(app.photo_urls) ? app.photo_urls : [];
     card.innerHTML = `
       <div>
         <span class="status-badge ${app.status}">${app.status}</span>
+        ${categoryLabel ? '<span class="status-badge" style="background:#eef1e4;color:#4a5238;">' + escapeHtml(categoryLabel) + '</span>' : ''}
         <h3>${escapeHtml(app.business_name)}</h3>
         <div class="meta">
           ${escapeHtml(app.contact_name)} &middot;
           <a href="mailto:${escapeHtml(app.email)}">${escapeHtml(app.email)}</a>
           ${app.phone ? ' &middot; ' + escapeHtml(app.phone) : ''}
         </div>
+        <div class="meta">
+          ${app.website ? '<a href="' + escapeHtml(app.website) + '" target="_blank" rel="noopener">Website</a>' : ''}
+          ${app.social_link ? ' &middot; <a href="' + escapeHtml(app.social_link) + '" target="_blank" rel="noopener">Instagram/Facebook</a>' : ''}
+        </div>
         <p class="desc">${escapeHtml(app.product_description)}</p>
+        ${photos.length ? '<p class="applied-at">Photos: ' + photos.map((u, i) => '<a href="' + escapeHtml(u) + '" target="_blank" rel="noopener">#' + (i + 1) + '</a>').join(' ') + '</p>' : ''}
+        ${app.coa_url ? '<p class="applied-at">COA: <a href="' + escapeHtml(app.coa_url) + '" target="_blank" rel="noopener">View certificate</a></p>' : ''}
         <p class="applied-at">Applied ${appliedDate}</p>
       </div>
       <div class="vendor-actions">

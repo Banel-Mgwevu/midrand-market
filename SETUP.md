@@ -7,9 +7,17 @@ newsletter signup, vendor applications, and admin dashboard actually work. Takes
 ## 1. Create your Supabase project
 1. Go to https://supabase.com, sign up, and create a new project (pick any name/region).
 2. Wait ~2 minutes for it to finish setting up.
-3. In the left sidebar, go to **SQL Editor** > **New query**, paste in the entire contents
-   of `supabase/schema.sql` from this folder, and click **Run**. This creates your two
-   tables (subscribers, vendor_applications) and locks them down so only you can read them.
+3. In the left sidebar, go to **Storage**, click **New bucket**, name it exactly
+   `vendor-uploads`, and toggle it to **Public**. This is where vendor photo and
+   COA certificate uploads get stored.
+4. Then go to **SQL Editor** > **New query**:
+   - **First time setting this up?** Paste in the entire contents of `supabase/schema.sql`
+     and click **Run**. This creates your tables (subscribers, vendor_applications) and
+     locks them down so only you can read them.
+   - **Already ran schema.sql before?** Instead, paste in the contents of
+     `supabase/migration_vendor_uploads.sql` and run that - it adds the new vendor form
+     fields (website, social link, category, photo/COA uploads) without losing any
+     applications you already have.
 
 ## 2. Get your API keys
 1. In Supabase, go to **Project Settings > API**.

@@ -173,6 +173,7 @@ nav.wrap{
 .form-note{margin-top:16px;font-size:.85rem;color:#6b7358;}
 .form-note.success{color:var(--forest-dark);font-weight:600;}
 .form-note.error{color:#a3401f;font-weight:600;}
+.field-hint{margin-top:4px;font-size:.78rem;color:#6b7358;}
 .booking-card .btn-solid{width:100%;margin-top:18px;}
 
 /* APPLICATION PAGE */
@@ -193,9 +194,9 @@ nav.wrap{
 .apply-right div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed rgba(255,255,255,.25);padding:6px 0;}
 .apply-right div:last-child{border-bottom:none;}
 .apply-steps{padding:56px 0;}
-.apply-steps .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.apply-steps .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .step-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;}
-.step-card .num{font-family:'Space Mono',monospace;color:var(--gold);font-size:.8rem;letter-spacing:.1em;}
+.step-card .num{font-family:'Space Mono',monospace;color:var(--gold);font-size:.75rem;letter-spacing:.1em;}
 .step-card h3{font-size:1.1rem;margin-top:10px;}
 .step-card p{font-size:.9rem;color:#4a5238;margin-top:8px;line-height:1.6;}
 

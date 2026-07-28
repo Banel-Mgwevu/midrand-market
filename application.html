@@ -37,31 +37,36 @@
 </header>
 
 <section class="page-header">
- <div class="wrap">
- <span class="section-tag">Applications</span>
- <h1>Sell what you grow, bake or make.</h1>
- <p>We're always looking for new farmers, bakers, roasters and makers to join the stalls. If your produce is grown or made by you, we'd love to hear from you.</p>
- </div>
+  <div class="wrap">
+    <span class="section-tag">Applications</span>
+    <h1>Sell what you grow, bake or make.</h1>
+    <p>Midrand Farmers Market is dedicated to giving small farmers, brands and artists a platform, whilst also being a pillar for community. The market is located at 15 Douglas Road, Glen Austin, and operates every Sunday, 09:00-15:30.</p>
+  </div>
 </section>
 
 <section class="apply-steps">
- <div class="wrap">
- <div class="step-card">
- <span class="num">01</span>
- <h3>Tell us about your stall</h3>
- <p>Send us photos of your products, a short description, and where you currently sell.</p>
- </div>
- <div class="step-card">
- <span class="num">02</span>
- <h3>We review your application</h3>
- <p>We hand-pick every vendor to keep the market varied, local and genuinely handmade.</p>
- </div>
- <div class="step-card">
- <span class="num">03</span>
- <h3>Book your stall</h3>
- <p>Once approved, we'll confirm your date, stall size and setup details by email.</p>
- </div>
- </div>
+  <div class="wrap">
+    <div class="step-card">
+      <span class="num">PLEASE NOTE</span>
+      <h3>What we don't allow</h3>
+      <p>Because we are a farmers market, we can't allow everyone to sell anything. We do not allow items from Shein, Alibaba/AliExpress, Temu, or AI-generated products.</p>
+    </div>
+    <div class="step-card">
+      <span class="num">PLEASE NOTE</span>
+      <h3>Staying on our books</h3>
+      <p>Our traders need to trade with us at least once per month to stay on our books.</p>
+    </div>
+    <div class="step-card">
+      <span class="num">PLEASE NOTE</span>
+      <h3>What you need to bring</h3>
+      <p>Your own folding table, chair, gazebo or sturdy umbrella with stand, and stall weights for wind. You'll also need signage - let us know if you need assistance with this.</p>
+    </div>
+    <div class="step-card">
+      <span class="num">PLEASE NOTE</span>
+      <h3>Food & fresh produce stalls</h3>
+      <p>Must strictly have a current COA certificate from the City of Johannesburg.</p>
+    </div>
+  </div>
 </section>
 
 <section class="apply-page">
@@ -69,39 +74,73 @@
     <div>
       <span class="section-tag" style="color:#e7d9a8;">Ready to join us?</span>
       <h2>Apply for a stall.</h2>
-      <p>Tell us about your product and stall. We reply to every application within a week.</p>
+      <p>Vendor fees start from R250-R400. Once your application is successful, you'll receive a welcome email from us with all the details, and a form on the space size you require. Should you not receive any response after 2 weeks, please consider your application unsuccessful.</p>
       <form id="vendorForm" class="vendor-form">
         <div class="form-grid">
           <div>
-            <label for="vBusiness" style="color:#f4f2e8;">Business / stall name</label>
-            <input type="text" id="vBusiness" placeholder="e.g. Green Acres Produce" required>
-          </div>
-          <div>
-            <label for="vContact" style="color:#f4f2e8;">Your name</label>
+            <label for="vContact" style="color:#f4f2e8;">Name and Surname</label>
             <input type="text" id="vContact" placeholder="Full name" required>
           </div>
           <div>
-            <label for="vEmail" style="color:#f4f2e8;">Email address</label>
+            <label for="vBusiness" style="color:#f4f2e8;">Organization Name</label>
+            <input type="text" id="vBusiness" placeholder="e.g. Green Acres Produce" required>
+          </div>
+          <div>
+            <label for="vEmail" style="color:#f4f2e8;">Email</label>
             <input type="email" id="vEmail" placeholder="you@email.com" required>
           </div>
           <div>
-            <label for="vPhone" style="color:#f4f2e8;">Phone number</label>
-            <input type="tel" id="vPhone" placeholder="066 000 0000">
+            <label for="vPhone" style="color:#f4f2e8;">Phone Number</label>
+            <input type="tel" id="vPhone" placeholder="066 000 0000" required>
+          </div>
+          <div>
+            <label for="vWebsite" style="color:#f4f2e8;">Website (link)</label>
+            <input type="url" id="vWebsite" placeholder="https://" required>
+          </div>
+          <div>
+            <label for="vSocial" style="color:#f4f2e8;">Instagram/Facebook (link)</label>
+            <input type="url" id="vSocial" placeholder="https://instagram.com/..." required>
           </div>
           <div class="full">
-            <label for="vProduct" style="color:#f4f2e8;">What will you be selling?</label>
-            <textarea id="vProduct" rows="4" placeholder="Describe your products, and where you currently sell them." required></textarea>
+            <label for="vCategory" style="color:#f4f2e8;">What category does your product fall under?</label>
+            <select id="vCategory" required>
+              <option value="" disabled selected>Choose a category</option>
+              <option value="Fresh Produce">Fresh Produce</option>
+              <option value="Food Truck/Stall">Food Truck/Stall</option>
+              <option value="Crafts">Crafts</option>
+              <option value="Vintage, Thrifted Goods/Clothes">Vintage, Thrifted Goods/Clothes</option>
+              <option value="Art/Decor">Art/Decor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="full" id="vCategoryOtherWrap" style="display:none;">
+            <label for="vCategoryOther" style="color:#f4f2e8;">Please specify</label>
+            <input type="text" id="vCategoryOther" placeholder="Describe your category">
+          </div>
+          <div class="full">
+            <label for="vProduct" style="color:#f4f2e8;">Description of what you are selling</label>
+            <textarea id="vProduct" rows="4" placeholder="Please provide detail - did you make it yourself, why is it special?" required></textarea>
+          </div>
+          <div class="full">
+            <label for="vPhotos" style="color:#f4f2e8;">Photos - your products, previous stalls, product table, signage, food truck etc</label>
+            <input type="file" id="vPhotos" accept="image/*,.pdf,.doc,.docx" multiple required>
+            <p class="field-hint">Up to 5 files - image, PDF or document. Max 10MB per file.</p>
+          </div>
+          <div class="full" id="vCoaWrap" style="display:none;">
+            <label for="vCoa" style="color:#f4f2e8;">COA Certificate &amp; Trading License (food vendors only)</label>
+            <input type="file" id="vCoa" accept="image/*,.pdf,.doc,.docx">
+            <p class="field-hint">1 file - PDF or document. Max 10MB.</p>
           </div>
         </div>
-        <button type="submit" class="btn-solid">Submit application</button>
-        <p class="form-note" id="vendorNote" style="color:#dfe8dd;">We review every application by hand and reply within a week.</p>
+        <button type="submit" class="btn-solid" id="vendorSubmitBtn">Submit application</button>
+        <p class="form-note" id="vendorNote" style="color:#dfe8dd;">Should you encounter any issues, please email us: <a href="mailto:midrandfarmersmarket@gmail.com" style="color:#fff;text-decoration:underline;">midrandfarmersmarket@gmail.com</a></p>
       </form>
     </div>
     <div class="apply-right">
-      <div><span>Stall fee</span><span>[Add price]</span></div>
+      <div><span>Stall fee</span><span>R250-R400</span></div>
       <div><span>Setup time</span><span>06:00-07:30</span></div>
       <div><span>Market hours</span><span>09:00-15:30</span></div>
-      <div><span>Power on site</span><span>On request</span></div>
+      <div><span>Trading requirement</span><span>1x per month</span></div>
     </div>
   </div>
 </section>
@@ -133,7 +172,7 @@
  <h3>Contact</h3>
  <ul>
  <li><a href="tel:+27662222833">066 222 2833</a></li>
- <li><a href="mailto:info@midrandfarmersmarket.co.za">info@midrandfarmersmarket.co.za</a></li>
+ <li><a href="mailto:midrandfarmersmarket@gmail.com">midrandfarmersmarket@gmail.com</a></li>
  <li><a href="application.html">Vendor applications</a></li>
  <li><a href="zoo-booking.html">Zoo booking</a></li>
  </ul>
