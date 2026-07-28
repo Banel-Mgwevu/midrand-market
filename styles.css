@@ -146,21 +146,7 @@ nav.wrap{
 .about-copy p{font-size:1rem;line-height:1.75;color:#3c4530;margin:0 0 18px;}
 .about-copy p:last-child{margin-bottom:0;}
 
-/* ZOO BOOKING PAGE */
-.zoo-section{padding:60px 0;}
-.zoo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-.zoo-info h2{font-size:clamp(1.6rem,3.5vw,2.1rem);}
-.zoo-info p{margin-top:16px;font-size:1rem;line-height:1.7;color:#3c4530;}
-.zoo-info ul{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
-.zoo-info li{
-  display:flex;gap:10px;align-items:flex-start;font-size:.96rem;color:#3c4530;
-}
-.zoo-info li::before{content:"-";flex-shrink:0;}
-.booking-card{
-  background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;
-}
-.booking-card h3{font-size:1.2rem;margin-bottom:6px;}
-.booking-card .sub{color:#5a6248;font-size:.9rem;margin-bottom:22px;}
+/* VENDOR APPLICATION FORM */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .form-grid .full{grid-column:1 / -1;}
 .form-grid label{display:block;font-size:.82rem;color:#4a5238;margin-bottom:6px;font-weight:500;}
@@ -174,7 +160,6 @@ nav.wrap{
 .form-note.success{color:var(--forest-dark);font-weight:600;}
 .form-note.error{color:#a3401f;font-weight:600;}
 .field-hint{margin-top:4px;font-size:.78rem;color:#6b7358;}
-.booking-card .btn-solid{width:100%;margin-top:18px;}
 
 /* APPLICATION PAGE */
 .apply-page{padding:60px 0;}
@@ -270,7 +255,7 @@ footer li a:hover{color:var(--forest);}
 
 /* RESPONSIVE */
 @media (max-width: 860px){
-  .hero .wrap, .about .wrap, .zoo-grid, .newsletter-inline .wrap{grid-template-columns:1fr;}
+  .hero .wrap, .about .wrap, .newsletter-inline .wrap{grid-template-columns:1fr;}
   .apply-page .wrap{grid-template-columns:1fr;padding:36px 26px;}
   .apply-steps .wrap{grid-template-columns:1fr;}
   .hero-badge{display:none;}

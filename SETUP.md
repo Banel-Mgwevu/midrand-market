@@ -83,7 +83,5 @@ GitHub Pages will redeploy automatically.
 ## Notes
 - `admin.html` isn't linked anywhere in the site's navigation - only people with the
   direct URL and your login can reach it.
-- The zoo booking form still only shows a browser confirmation and isn't saved anywhere
-  yet. Let me know if you'd like that wired up the same way.
 - If anything returns an error in the dashboard, open your browser's dev console
   (F12 > Console tab) - the error message there usually says exactly what's missing.

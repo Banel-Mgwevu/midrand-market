@@ -200,26 +200,3 @@ if (vendorForm) {
   });
 }
 
-// ---------- Zoo booking form ----------
-// NOTE: this is still browser-only confirmation. Wire it to Supabase the same
-// way as the forms above (a "zoo_bookings" table) if you want real bookings recorded.
-const bookingForm = document.getElementById('bookingForm');
-if (bookingForm) {
-  const bookingNote = document.getElementById('bookingNote');
-  bookingForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('bkName').value.trim();
-    const email = document.getElementById('bkEmail').value.trim();
-    const date = document.getElementById('bkDate').value;
-    const slot = document.getElementById('bkSlot').value;
-    const guests = document.getElementById('bkGuests').value;
-    if (!name || !isValidEmail(email) || !date || !slot || !guests) {
-      bookingNote.textContent = 'Please fill in every field with a valid email address.';
-      bookingNote.className = 'form-note error';
-      return;
-    }
-    bookingNote.textContent = 'Booking request received, ' + name + '! We will confirm your ' + slot + ' slot on ' + date + ' by email.';
-    bookingNote.className = 'form-note success';
-    bookingForm.reset();
-  });
-}
