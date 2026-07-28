@@ -32,7 +32,7 @@ if (nlOverlay) {
     sessionStorage.setItem('nlModalSeen', '1');
   }
 
-  if (!sessionStorage.getItem('nlModalSeen')) {
+  if (!sessionStorage.getItem('nlModalSeen') && !localStorage.getItem('nlSubscribed')) {
     setTimeout(openModal, 900);
   }
 
@@ -77,6 +77,7 @@ if (nlOverlay) {
     nlModalNote.textContent = 'Thanks, ' + name + ' - you are on the list for market updates!';
     nlModalNote.className = 'nl-note success';
     nlModalForm.reset();
+    localStorage.setItem('nlSubscribed', '1');
     setTimeout(closeModal, 1600);
   });
 }
